@@ -13,8 +13,9 @@
 #
 class perlbrew::params {
 
-  $perlbrew_root = '/usr/local/perlbrew'
-  $perlbrew_bin  = '/usr/local/bin/perlbrew'
+  $perlbrew_root = '/opt/perlbrew'
+  $perlbrew_bin  = "$perlbrew_root/bin"
+  $perlbrew_file = "$perlbrew_bin/perlbrew"
   $cpanm_url     = 'http://github.com/miyagawa/cpanminus/raw/master/cpanm'
 
   # allow the system to choose for us -- less chance of collisions

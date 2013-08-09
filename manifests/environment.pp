@@ -15,7 +15,7 @@ class perlbrew::environment {
   group {
     'perlbrew':
       ensure => present,
-      gid    => $perlbrew::params::perlbrew_gid,
+#      gid    => $perlbrew::params::perlbrew_gid,
       system => true,
   }
 
@@ -23,13 +23,22 @@ class perlbrew::environment {
     'perlbrew':
       ensure => present,
       home   => $perlbrew::params::perlbrew_root,
-      uid    => $perlbrew::params::perlbrew_uid,
-      gid    => 'perlbrew',
+#      uid    => $perlbrew::params::perlbrew_uid,
+#      gid    => $perlbrew::params::perlbrew_gid,
       system => true,
   }
 
   file {
     $perlbrew::params::perlbrew_root:
+      ensure  => directory,
+      mode    => '0755',
+      owner   => perlbrew,
+      group   => perlbrew,
+      require => [ Group['perlbrew'], User['perlbrew'] ],
+  }
+
+  file {
+    $perlbrew_bin:
       ensure  => directory,
       mode    => '0755',
       owner   => perlbrew,

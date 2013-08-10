@@ -38,7 +38,7 @@ class perlbrew::environment {
   }
 
   file {
-    $perlbrew_bin:
+    $perlbrew::params::perlbrew_bin:
       ensure  => directory,
       mode    => '0755',
       owner   => perlbrew,

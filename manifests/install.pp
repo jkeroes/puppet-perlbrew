@@ -35,7 +35,7 @@ class perlbrew::install {
   if ! defined(Package['wget'])           { package { 'wget':           ensure => installed } }
 
   file {
-    $perlbrew::params::perlbrew_bin:
+    $perlbrew::params::perlbrew_file:
       owner   => root,
       group   => root,
       mode    => '0755',

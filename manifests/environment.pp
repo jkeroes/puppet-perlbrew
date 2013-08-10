@@ -48,7 +48,7 @@ class perlbrew::environment {
 
   exec {
     'perlbrew_init':
-      command => "/bin/sh -c 'umask 022; /usr/bin/env PERLBREW_ROOT=${perlbrew::params::perlbrew_root} ${perlbrew::params::perlbrew_bin} init'",
+      command => "/bin/sh -c 'umask 022; /usr/bin/env PERLBREW_ROOT=${perlbrew::params::perlbrew_root} ${perlbrew::params::perlbrew_file} init'",
       creates => "${perlbrew::params::perlbrew_root}/perls",
       user    => 'perlbrew',
       group   => 'perlbrew',

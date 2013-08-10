@@ -34,16 +34,13 @@ class perlbrew::environment {
       mode    => '0755',
       owner   => perlbrew,
       group   => perlbrew,
-      require => [ Group['perlbrew'], User['perlbrew'] ],
-  }
-
-  file {
+      require => [ Group['perlbrew'], User['perlbrew'] ];
     $perlbrew::params::perlbrew_bin:
       ensure  => directory,
       mode    => '0755',
       owner   => perlbrew,
       group   => perlbrew,
-      require => [ Group['perlbrew'], User['perlbrew'] ],
+      require => [ Group['perlbrew'], User['perlbrew'] ];
   }
 
   exec {
